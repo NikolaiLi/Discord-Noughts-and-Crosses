@@ -35,5 +35,6 @@ async def on_message(message):
         reply = board
         await message.channel.send(reply1)
         await message.channel.send(reply)
+        
 token = get_token()
 client.run(token)

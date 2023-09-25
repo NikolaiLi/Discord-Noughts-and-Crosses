@@ -1,0 +1,1 @@
+ata har en stor pik

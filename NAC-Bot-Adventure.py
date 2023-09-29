@@ -24,6 +24,7 @@ async def on_message(message):
     
     if contents.startswith("!adv.play"):
         reply = "Welcome to this adventure you stupid ass"
+        await message.channel.send(reply)
         
 token = get_token()
 client.run(token)

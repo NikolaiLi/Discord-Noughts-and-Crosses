@@ -1,9 +1,8 @@
 import discord
 
-board = """
-:green_square: :green_square: :green_square:
-:green_square: :green_square: :green_square:
-:green_square: :green_square: :green_square: """
+board = [":green_square:", ":green_square:", ":green_square:"]
+[":green_square:", ":green_square:", ":green_square:"]
+[":green_square:", ":green_square:", ":green_square:"]
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -29,7 +28,7 @@ async def on_ready():
 async def on_message(message):
     contents = message.content
     user_id = message.author.id
-
+    
     if contents.startswith("!nac.play"):
         reply1 = "Here's your board"
         reply = board

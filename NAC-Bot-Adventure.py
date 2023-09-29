@@ -7,9 +7,6 @@ client = discord.Client(intents=intents)
 
 TOK_FILE = "token.txt"
 
-fav_emojis = {}
-reacts = {}
-
 def get_token():
   tokfile = open(TOK_FILE, 'r')
   token = tokfile.read()

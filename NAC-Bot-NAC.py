@@ -1,8 +1,8 @@
 import discord
 
-board = [":green_square:", ":green_square:", ":green_square:"]
-[":green_square:", ":green_square:", ":green_square:"]
-[":green_square:", ":green_square:", ":green_square:"]
+board = [[":green_square:", ":green_square:", ":green_square:"],
+[":green_square:", ":green_square:", ":green_square:"],
+[":green_square:", ":green_square:", ":green_square:"]]
 
 intents = discord.Intents.default()
 intents.message_content = True

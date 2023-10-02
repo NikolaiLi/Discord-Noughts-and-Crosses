@@ -2,7 +2,14 @@ board = [[":green_square:", ":green_square:", ":green_square:"],
 [":green_square:", ":green_square:", ":green_square:"],
 [":green_square:", ":green_square:", ":green_square:"]]
 
-for i in board:
-    print(i)
+hej = ["1","2","3"]
 
-print(board)
+for i in board:
+    print("".join(i))
+"""
+print("".join(hej))
+
+print(board[0])
+"""
+#for i in board:
+    

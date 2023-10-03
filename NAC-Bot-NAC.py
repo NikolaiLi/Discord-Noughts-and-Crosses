@@ -4,6 +4,7 @@ board = [[":one:", ":two:", ":three:"],
 [":four:", ":five:", ":six:"],
 [":seven:", ":eight:", ":nine:"]]
 
+players = [":x:",":o:"]
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -28,27 +29,32 @@ async def print_board(channel):
 @client.event
 async def on_ready():
     print("Connected!")
+    global play
+    play = False
 
 @client.event
 async def on_message(message):
     contents = message.content
     channel = message.channel
     user_id = message.author.id
-    
+    current_player = 0
     if contents.startswith("!nac.play"):
-        reply1 = "Here's your board"
+        reply1 = "Here's your board:"
         await message.channel.send(reply1)
         await print_board(channel)
-        
+        await message.channel.send("Player1, enter the number you want to place your cross:")
+        global play
         play = True
     
-    while play == True:
-       await message.channel.send("Player1, enter the number you want to place your cross:")
-       
+    if play == True:
        if contents.startswith("1"):
-          board[0][0] = ":x:"
+          print("test")
+          board[0][0] = players[current_player % 2]
+          current_player = current_player + 1
           await print_board(channel)
-          break
+    
+          
+  
       
 token = get_token()
 client.run(token)

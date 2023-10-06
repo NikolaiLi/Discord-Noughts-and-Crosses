@@ -52,6 +52,7 @@ async def on_message(message):
           board[0][0] = players[current_player % 2]
           current_player = current_player + 1
           await print_board(channel)
+          await message.channel.send("Player2, enter the number you want to place your nought")
     
           
   

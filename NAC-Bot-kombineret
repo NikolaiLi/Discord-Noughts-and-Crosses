@@ -22,19 +22,19 @@ async def on_message(message):
     contents = message.content
     user_id = message.author.id
     
-    if contents.startswith("!game"):
-        reply = "Noughts and crosses", "Adventure", "Joke"
+    if contents.startswith("!games"):
+        reply = "Noughts and Crosses, Adventure, Joke"
         await message.channel.send(reply)
 
 Game = {
-    1: "Noughts and crosses",
+    1: "Noughts and Crosses",
     2: "Adventure",
     3: "Joke"
     
 }
 
-if 1 == True:
-    print()
+
+
 
 token = get_token()
 client.run(token)

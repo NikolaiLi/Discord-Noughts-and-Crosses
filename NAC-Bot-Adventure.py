@@ -31,7 +31,7 @@ async def kitchen(channel):
 
 
 async def livingroom(channel):
-    reply = ["You see a bed and a desk - It looks like a living room", "There's a key on the ground right infront of you - It's maybe for the door - Type 'pickup' to pick the key up"]
+    reply = ["You see a bed and a desk - It looks like a bedroom", "There's a key on the ground right infront of you - It's maybe for the door - Type 'pickup' to pick the key up"]
     for i in reply:
         await channel.send(i)
 

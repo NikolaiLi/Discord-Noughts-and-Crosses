@@ -29,14 +29,20 @@ def get_token():
 @client.event
 async def on_ready():
     print("Connected!")
-
+    global on
+    on = False
 @client.event
 async def on_message(message):
     contents = message.content
     channel = message.channel  
-    
+    global on
     if contents.startswith("!game"):
         await print_game(channel)
+        on = True
+    if on == True:
+       if contents.startswith 
+
+
 
 
 

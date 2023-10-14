@@ -33,29 +33,12 @@ async def on_ready():
 @client.event
 async def on_message(message):
     contents = message.content
-    user_id = message.author.id
     channel = message.channel  
     
-<<<<<<< HEAD
     if contents.startswith("!game"):
         await print_game(channel)
 
 
-=======
-    if contents.startswith("!games"):
-        reply = "Noughts and Crosses, Adventure, Joke"
-        await message.channel.send(reply)
-
-Game = {
-    1: "Noughts and Crosses",
-    2: "Adventure",
-    3: "Joke"
-    
-}
-
-
-
->>>>>>> c3382b1b0cf120f305e58a2672dbe4950147e938
 
 token = get_token()
 client.run(token)

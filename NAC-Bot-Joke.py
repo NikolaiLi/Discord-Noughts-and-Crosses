@@ -23,7 +23,7 @@ async def on_message(message):
     contents = message.content
     user_id = message.author.id
     
-    if contents.startswith("!joke"):
+    if contents.startswith("!joke.play"):
         joke_id = random.randint(1,len(Jokes))
         reply = Jokes[joke_id]
         await message.channel.send(reply)

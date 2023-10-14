@@ -9,10 +9,6 @@ coordinates = {"1":(0,0), "2":(0,1), "3":(0,2),
                "7":(2,0), "8":(2,1), "9":(2,2)}
 
 players = [":x:",":o:"]
-<<<<<<< HEAD
-=======
-
->>>>>>> c3382b1b0cf120f305e58a2672dbe4950147e938
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -33,30 +29,35 @@ def get_token():
 async def print_board(channel):
    for i in board:
       await channel.send(" ".join(i))
-    
+
 async def check_win(channel):
     global play
-    for i in board:
-        if board[i][0] == board[i][1] and board[i][1] == board[i][2]:
-            await channel.send("Player: " + board[0][0] + " wins")
-            play = False
-            return
+    for i in range(3):
+        if board[i][0] == board[i][1] == board[i][2]:
+            if board[i][0] in players:
+                await channel.send("Player: " + board[i][0] + " wins")
+                play = False
+                return
         
-        elif board[0][i] == board[1][i] and board[1][i] == board[2][i]:
-            await channel.send("Player: " + board[0][0] + " wins")
-            play = False
-            return
+        if board[0][i] == board[1][i] == board[2][i]:
+            if board[0][i] in players:
+                await channel.send("Player: " + board[0][i] + " wins")
+                play = False
+                return
         
-        elif board[0][0] == board[1][1] and board[1][1] == board[2][2]:
-            await channel.send("Player: " + board[0][0] + " wins")
-            play = False
-            return
+        if board[0][0] == board[1][1] == board[2][2]:
+            if board[0][0] in players:
+                await channel.send("Player: " + board[0][0] + " wins")
+                play = False
+                return
         
-        elif board[2][0] == board[1][1] and board[1][1] == board[0][2]:
-            await channel.send("Player: " + board[2][0] + " wins")
-            play = False
-            return
-        elif board[0][0] != ":one:" and board[0][1] != ":two:" and board[0][2] != ":three:" and board[1][0] != ":four:" and board[1][1] != ":five:" and board[1][2] != ":six:" and board[2][0] != ":seven:" and board[2][1] != ":eight:"and board[2][2] != ":nine:":
+        if board[2][0] == board[1][1] == board[0][2]:
+            if board[2][0] in players:
+                await channel.send("Player: " + board[2][0] + " wins")
+                play = False
+                return
+            
+        if board[0][0] != ":one:" and board[0][1] != ":two:" and board[0][2] != ":three:" and board[1][0] != ":four:" and board[1][1] != ":five:" and board[1][2] != ":six:" and board[2][0] != ":seven:" and board[2][1] != ":eight:"and board[2][2] != ":nine:":
             await channel.send("It's a draw!")
             play = False
             return
@@ -64,6 +65,10 @@ async def check_win(channel):
 @client.event
 async def on_ready():
     print("Connected!")
+    global play
+    global player
+    play = False
+    player = False
 
 @client.event
 async def on_message(message):
@@ -91,7 +96,7 @@ async def on_message(message):
             else:
                 board[coordinates[input][0]][coordinates[input][1]] = players[0]
                 await print_board(channel)
-                await message.channel.send("Player2, enter the number you want to place your nought")
+                await message.channel.send("Player2, enter the number where you want to place your nought")
                 player = False
                    
         elif player == False:
@@ -100,7 +105,7 @@ async def on_message(message):
             else:
                 board[coordinates[input][0]][coordinates[input][1]] = players[1]
                 await print_board(channel)
-                await message.channel.send("Player1, enter the number you want to place your cross")
+                await message.channel.send("Player1, enter the number where you want to place your cross")
                 player = True
 
          

@@ -9,6 +9,10 @@ coordinates = {"1":(0,0), "2":(0,1), "3":(0,2),
                "7":(2,0), "8":(2,1), "9":(2,2)}
 
 players = [":x:",":o:"]
+<<<<<<< HEAD
+=======
+
+>>>>>>> c3382b1b0cf120f305e58a2672dbe4950147e938
 
 intents = discord.Intents.default()
 intents.message_content = True

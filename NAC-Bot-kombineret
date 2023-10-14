@@ -8,12 +8,11 @@ client = discord.Client(intents=intents)
 TOK_FILE = "token.txt"
 
 Game = {
-    1: "Noughts and crosses",
-    2: "Adventure",
-    3: "Joke"
+    "1 ": "Noughts and crosses",
+    "2 ": "Adventure",
+    "3 ": "Joke"
     
 }
-
 async def print_game(channel):
    x = 1
    for i in Game:
@@ -31,20 +30,32 @@ async def on_ready():
     print("Connected!")
     global on
     on = False
+
 @client.event
 async def on_message(message):
     contents = message.content
     channel = message.channel  
     global on
+
     if contents.startswith("!game"):
         await print_game(channel)
         on = True
+
     if on == True:
-       if contents.startswith 
-
-
-
-
+       if contents.startswith("1"):
+          await message.channel.send("!nac.play")
+          on = False
+          return
+       
+       if contents.startswith("2"):
+          await message.channel.send("!adv.play")
+          on = False
+          return
+       
+       if contents.startswith("3"):
+          await message.channel.send("!joke.play")
+          on = False
+          return
 
 token = get_token()
 client.run(token)

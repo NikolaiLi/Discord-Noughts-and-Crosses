@@ -21,7 +21,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
     contents = message.content
-    user_id = message.author.id
     
     if contents.startswith("!joke.play"):
         joke_id = random.randint(1,len(Jokes))
